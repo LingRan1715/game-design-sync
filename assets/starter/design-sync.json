@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "datasets": [
+    {
+      "id": "skills",
+      "id_field": "id",
+      "case_insensitive_ids": true,
+      "fields": {
+        "id": {"type": "string", "pattern": "[a-z][a-z0-9_]*"},
+        "damage": {"type": "integer", "min": 0, "max": 100000},
+        "cooldown": {"type": "number", "min": 0, "max": 600},
+        "enabled": {"type": "boolean"}
+      },
+      "views": [
+        {"id": "design", "path": "Design/skills.md", "format": "markdown", "block": "skills"},
+        {"id": "table", "path": "Tables/skills.csv", "format": "csv"},
+        {
+          "id": "game",
+          "path": "GameData/skills.json",
+          "format": "json",
+          "columns": {"id": "Name", "damage": "Damage", "cooldown": "Cooldown", "enabled": "Enabled"}
+        }
+      ]
+    }
+  ],
+  "rollback_paths": [],
+  "checks": [
+    {"id": "sample-data-consumer", "argv": ["{python}", "Tests/check_runtime_data.py"], "timeout": 30}
+  ]
+}

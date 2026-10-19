@@ -1,0 +1,7 @@
+.design-sync/sync.lock
+.design-sync/ue-bridge.lock
+.design-sync/pending.json
+.design-sync/last-transaction.json
+.design-sync/last-report.json
+.design-sync/gds-ue-*/
+__pycache__/

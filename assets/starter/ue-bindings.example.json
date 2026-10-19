@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "tables": [
+    {"asset": "/Game/Data/DT_Skills", "json": "GameData/skills.json"}
+  ]
+}

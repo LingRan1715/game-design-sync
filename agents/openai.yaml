@@ -1,0 +1,4 @@
+interface:
+  display_name: "游戏策划与实现联动"
+  short_description: "把策划案、配置表和游戏实现接入可验证的双向同步工作流"
+  default_prompt: "使用 $game-design-sync 检查当前项目，将这次改动同步到相关策划案、配置表和游戏实现，并验证结果。"

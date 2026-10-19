@@ -1,0 +1,2 @@
+id,damage,cooldown,enabled,designer_note
+fireball,100,2.0,true,示例备注不参与跨文件同步

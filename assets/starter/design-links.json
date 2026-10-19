@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "features": [
+    {
+      "id": "skill.fireball",
+      "files": ["Design/skills.md", "Tables/skills.csv", "GameData/skills.json", "Tests/check_runtime_data.py"],
+      "rule_anchor": "Design/skills.md#skillfireball",
+      "implementation": "示例仅有 Python 数据消费者。真实项目替换为 C++ 符号、蓝图资源/函数、DataTable 资源路径和加载位置。",
+      "acceptance": [
+        "初始示例：火球单次伤害 100，冷却 2 秒；修改字段后以同步后的值为预期。",
+        "接入 UE 后：从真实数据加载链路读取对应行，PIE 发射火球命中，确认伤害和冷却与表一致。"
+      ]
+    }
+  ]
+}
