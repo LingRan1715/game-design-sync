@@ -220,6 +220,13 @@ class SyncTests(unittest.TestCase):
         with self.assertRaisesRegex(sync.SyncError, "escapes"):
             self.call("plan")
 
+    def test_equivalent_project_root_is_normalized_before_boundary_check(self):
+        alternate_root = self.root / "GameData" / ".."
+        expected = (self.root / "GameData/skills.json").resolve()
+        self.assertEqual(sync.scoped(alternate_root, "GameData/skills.json"), expected)
+        with self.assertRaisesRegex(sync.SyncError, "escapes"):
+            sync.scoped(alternate_root, "../outside.json")
+
     def test_pending_recovery(self):
         paths = [self.root / "GameData/skills.json"]
         before = sync.snapshots(self.root, paths)

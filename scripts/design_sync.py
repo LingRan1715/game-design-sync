@@ -44,6 +44,9 @@ def atomic(path, data):
 
 
 def scoped(root, name):
+    # Normalize the boundary too: Windows temp paths can contain 8.3 aliases,
+    # and callers may pass an equivalent path containing '..' or a junction.
+    root = root.resolve()
     if not isinstance(name, str) or not name or Path(name).is_absolute():
         raise SyncError(f"Expected project-relative path: {name!r}")
     path = (root / name).resolve()
